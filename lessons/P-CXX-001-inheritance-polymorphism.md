@@ -2,8 +2,8 @@
 
 Date: 2026-09-06
 Parent lesson: C001 — A C++ tool's behavior and contract
-Mastery status: not attempted
-Execution state: active
+Mastery status: U1 demonstrated; U2 not attempted
+Execution state: active; U2 is the current unit
 Normal budget: four focused sessions of 45–60 minutes; no automatic advancement.
 
 ## Why this exists
@@ -29,7 +29,7 @@ The learner owns all exercise implementations, tests, and revisions. The assista
 | U3: Ownership and substitutability | Which data are base-wide, which are derived-only, and what must never be sliced or leaked? | Revise the U1 design to store polymorphic objects safely without leaking or copying away derived behavior. | Explain ownership choice, slicing risk, and why base destruction is safe. |
 | U4: Error-family design transfer | Can the same reasoning describe an error family without solving C001? | On paper, design a new unrelated validation-error family with common message/context and one subtype-specific field; then implement only if the design review succeeds. | State field placement reasons; handle one unfamiliar subtype variation. |
 
-## U1 — active opening checkpoint
+## U1 — demonstrated
 
 ### Feature
 
@@ -72,9 +72,35 @@ Choose an unrelated feature domain with two variants (for example, two kinds of 
 
 Stop after answering; review the design before code.
 
-## U2 — deferred
+## U2 — active: construction, destruction, and invariants
 
-Begin only after U1 is demonstrated. Do not substitute a memorized ordering rule for a prediction plus actual trace evidence.
+### Feature
+
+A caller needs confidence about when a base part, its members, and derived-only state come into existence and are destroyed. This determines whether a derived class may rely on base invariants and why cleanup runs in reverse order.
+
+### Learner-owned task
+
+Build one small, unrelated traceable base/derived hierarchy. Use one member object owned by the base and another owned by the derived class; each construction and destruction event must leave an observable trace. Create the most-derived object in a local scope; do not use heap allocation.
+
+Before coding, predict the complete event sequence. After coding, run it and compare every observed event with the prediction.
+
+### Acceptance criteria
+
+1. Actual output identifies base construction, base-member construction, derived construction, derived-member construction, and their destruction events.
+2. The learner gives a complete predicted order before execution.
+3. The learner explains why destruction reverses the relevant construction dependencies.
+4. One transfer variation adds a second member or another inheritance level and predicts the new sequence.
+
+### Opening question — ask only this first
+
+Consider a derived object whose base class owns one member and whose derived class owns one additional member. Without writing code, list the order in which you predict these four phases occur:
+
+- base member construction;
+- base constructor body;
+- derived member construction;
+- derived constructor body.
+
+Stop after the prediction; review it before implementation.
 
 ## U3 — deferred
 
@@ -92,22 +118,22 @@ Return when U1–U3 have demonstrated evidence and U4's field-placement design c
 
 ### Learner prediction/design
 
-Pending.
+U1: the learner chose output sinks. The common contract is text output; destinations differ. The learner correctly identified that calls through `OutSink&` use virtual dispatch based on the object's actual derived type.
 
 ### Attempts and execution evidence
 
-None.
+U1 learner-reported/screenshot evidence: Visual Studio/MSVC Debug x64 build succeeded with zero errors. `Output(OutSink&, text)` dispatched to console, file, and memory sinks. The memory sink stored `msg0` through `msg15`, preserved one valid empty string, and returned no value for later indices. The final visible output distinguished an ordinary message, the stored empty-string case (`Null Str` in the learner's label), and missing identifiers (`Invalid ID`). Source was submitted in conversation but is not committed to this repository.
 
 ### Tutor review
 
-2026-09-06: created because the learner explicitly reported that C++ inheritance and polymorphism code/design is not yet sufficiently mastered for the C001 exception hierarchy. This is a prerequisite record, not evidence of mastery.
+2026-09-06: U1 demonstrated dynamic dispatch through a base reference, correct static-versus-dynamic type explanation, and a third `MemoryOut` transfer variant. Review findings: `MemoryOut::read` initially fell off a non-void function on invalid input; learner revised its contract to `std::optional<std::string>`. The test now distinguishes no result from an existing empty string. Direct includes for `<vector>` and `<cstdint>` remain an engineering cleanup item unless already added locally. The label `Null Str` refers to an empty string, not a null string/pointer. U2 is now active.
 
 ### Revision and transfer
 
-Pending.
+U1 transfer demonstrated: `MemoryOut` added without changing the caller function. U2 transfer pending.
 
 ### Outcome
 
-Status: not attempted.
-Next action: answer the U1 opening question.
+Status: U1 demonstrated; U2 not attempted.
+Next action: answer the U2 construction-order prediction question.
 Retention: revisit polymorphic dispatch two or three sessions after demonstrated work.
