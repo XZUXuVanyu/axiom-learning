@@ -2,7 +2,7 @@
 
 Updated: 2026-09-06
 Main lesson: L001 — Runtime validation
-Active unit: L001 — Runtime validation
+Active unit: P03 — Conditions and runtime checks
 Record: lessons/L001-runtime-validation.md
 Mastery status: not attempted (implementation)
 Execution state: L001 paused; prerequisite assessment active
@@ -15,13 +15,13 @@ No learner implementation, compiler output, or mastery assessment has been submi
 |---|---|---|
 | Static types versus runtime values | P01 bounded check met | Learner explanation: annotation does not change the runtime value; TypeScript annotations are erased before JavaScript runs. |
 | Basic values and object properties | P02 bounded check met | Learner correctly classified numbers, strings, null, and ordinary objects; identified property key `"a"` and value `20`; explained why object shape/property types matter. |
-| Conditions and runtime checks | P03 demonstrated | Learner implemented a runtime-value classifier with `unknown`; learner-reported `node app.js` output covered undefined, null, number, string, boolean, array, ordinary object, function, and symbol. |
-| TypeScript unknown and narrowing | Ready to resume L001 | P01–P03 prerequisite checks provide narrow supporting evidence only; the parent validator remains unattempted. |
+| Conditions and runtime checks | P03 revision needed | Learner classifier handles the displayed required inputs plus function and symbol, but the untested `bigint` category would currently escape as raw `"bigint"` rather than contract label `"other"`. |
+| TypeScript unknown and narrowing | Blocked on P03 revision | Parent validator remains unattempted. |
 | Runtime request validation | Not attempted | No learner implementation or execution evidence. |
 
 ## Next action
 
-Resume L001 at its opening return point: state, in plain language, what must be established before using `a` and `b` on `unknown` input. Then define the parent validator's learner-owned implementation and acceptance cases. Do not infer that the validator is implemented from P03.
+Revise P03 so every runtime category outside the named labels reaches `"other"`; add and run a bigint transfer case, then report the actual command/output and explanation. Do not begin the parent `parseAddArguments` validator until that revision is reviewed.
 
 ## Pending decisions
 
@@ -35,12 +35,12 @@ None due yet. Revisit a demonstrated concept after two or three subsequent sessi
 
 ## Blocker and return point
 
-The learner identified basic TypeScript grammar and datatypes as possible missing prerequisites for unknown. P01 and P02 bounded checks are met; P03 is demonstrated. Return to L001; do not label the full validator mastered from prerequisite work.
+The learner identified basic TypeScript grammar and datatypes as possible missing prerequisites for unknown. P01 and P02 bounded checks are met. P03 requires one revision for an untested bigint case; do not label the full validator mastered from prerequisite work.
 
 Return point: L001's first question — what must be established before using an unknown value's a and b properties?
 
-Provisional order: P01 values/variables/type annotations -> P02 basic values/object properties -> P03 conditions/runtime checks -> L001 unknown/narrowing. P01 and P02 have narrow supporting evidence; P03 is demonstrated. The parent L001 validator remains unattempted.
+Provisional order: P01 values/variables/type annotations -> P02 basic values/object properties -> P03 conditions/runtime checks -> L001 unknown/narrowing. P01 and P02 have narrow supporting evidence; P03 needs a bigint revision. The parent L001 validator remains unattempted.
 
 ## Continuation instructions
 
-Read AGENTS.md, learning-agreement.md, this file, and the L001 record. Preserve learner-owned implementation. Ask one question at a time. Short prerequisite evidence stays inside L001; use a separate file only if a unit grows substantially or is reused. P03's implementation was learner-owned and its learner-reported output/explanation/transfer result are recorded in L001. Resume the parent validator from its return point.
+Read AGENTS.md, learning-agreement.md, this file, and the L001 record. Preserve learner-owned implementation. Ask one question at a time. Short prerequisite evidence stays inside L001; use a separate file only if a unit grows substantially or is reused. P03's implementation was learner-owned and its learner-reported output/explanation/transfer result are recorded in L001. Complete the bigint revision before returning to the parent validator.
