@@ -18,3 +18,7 @@ Before teaching or reviewing, read learning-agreement.md, progress.md, and the a
 ## Session close
 
 Draft an evidence-based update to the current lesson and progress.md. Leave the learner's own explanation for them to write. Preserve failures and gaps. Set one next action. Do not mark a task demonstrated solely because tests pass.
+
+## Missing prerequisites
+
+When a question exceeds the learner's knowledge, pause the main exercise and record the exact blocker and return point. Teach the smallest needed prerequisite rather than repeatedly asking the learner to guess. Keep one active unit; put optional topics in a later list. Use at most two nested prerequisite levels as a revisable organizational default. If a third level is needed, flatten the work into a short foundations sequence. Define a bounded understanding check before teaching, then return to the parent exercise. Follow the prerequisite workflow in learning-agreement.md and recover the active unit from progress.md. A blocked flag is separate from mastery status.

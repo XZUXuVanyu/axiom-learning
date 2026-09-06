@@ -1,6 +1,7 @@
 # L001 — Runtime validation of tool arguments
 
-Status: not attempted
+Mastery status: implementation not attempted
+Execution state: paused for prerequisite assessment; P01 active
 Normal budget: 45–60 minutes; first checkpoint: 10–15 minutes.
 
 ## Purpose
@@ -38,7 +39,7 @@ NaN and Infinity cannot appear as JSON number literals, but can be passed direct
 
 Additional expectations: accepted input remains unchanged, and the return is a fresh object. These are finite behavioral checks, not proof of all possible behavior.
 
-## Begin here — no implementation yet
+## Parent exercise — return here after prerequisites
 
 1. In plain language, what must you establish about unknown input before using its a and b properties? An incomplete answer is welcome.
 2. Does declaring that external data has a type change the data itself? Explain your prediction.
@@ -75,5 +76,34 @@ Choose a small new input contract after the original attempt is understood; do n
 Status: not attempted.
 Evidence source: no execution.
 Remaining gaps: unassessed.
-Next action: opening questions above.
+Next action: P01 foundations assessment below, then return to opening question 1.
 Retention review: after two or three later sessions following demonstration.
+
+## Prerequisite checkpoint — 2026-09-06
+
+The learner raised a prerequisite problem: understanding unknown may require basic TypeScript grammar and datatypes first. The tutor acknowledged that L001's entry point should be adjusted. This is evidence of a reported obstacle, not a completed skills assessment. Earlier environment findings above remain historical evidence and were not rerun for this documentation update.
+
+| Unit | Why needed | Bounded check | State |
+|---|---|---|---|
+| P01: values, variables, type annotations | Separate actual data from static declarations | Explain value versus annotation on a small unrelated example | Active; unassessed |
+| P02: basic values and object properties | Recognize the kinds of input being discussed | Distinguish numbers, strings, objects, null, and undefined, and describe a property | Pending assessment |
+| P03: conditions and runtime checks | Understand evidence used for narrowing | Explain what a simple condition establishes and what it does not | Pending assessment |
+
+This sequence is provisional. Skip supported prerequisites based on learner evidence. Do not teach all TypeScript datatypes merely to complete a checklist.
+
+### P01 short record
+
+- Why needed: the meaning of unknown depends on distinguishing runtime values from type information.
+- Objective: understand values, variables, and basic type-annotation syntax.
+- Check: after a brief explanation, predict whether changing an annotation changes the actual value in an unrelated example, and explain why.
+- Learner answer/attempt: pending.
+- Review/evidence: no P01 assessment performed yet.
+- Hints: no P01 instructional hint recorded; only the learning sequence has been discussed.
+- Remaining gap: exact prerequisite knowledge is unassessed.
+- Mastery status: not attempted.
+- Return point: L001 opening question 1; assess P02/P03 if still needed.
+- Next action: tutor gives a brief explanation of values/variables/type annotations and asks one small prediction question. No validator implementation.
+
+### Later questions
+
+None recorded. Add optional topics here instead of starting another active unit.

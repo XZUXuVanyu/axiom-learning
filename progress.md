@@ -1,9 +1,11 @@
 # Current progress
 
 Updated: 2026-09-06
-Active lesson: L001 — Runtime validation
+Main lesson: L001 — Runtime validation
+Active unit: P01 — Values, variables, and type annotations
 Record: lessons/L001-runtime-validation.md
-Status: not attempted
+Mastery status: not attempted (implementation)
+Execution state: L001 paused; prerequisite assessment active
 
 ## Verified course evidence
 
@@ -17,7 +19,7 @@ No learner implementation, compiler output, or mastery assessment has been submi
 
 ## Next action
 
-Answer Lesson 1's first opening question in plain language. No implementation yet. Work on one prerequisite at a time.
+Begin P01 in lessons/L001-runtime-validation.md. Explain values, variables, and type annotations briefly, then ask one small prediction question and wait. Do not restart the full validator question before its prerequisites are established.
 
 ## Pending decisions
 
@@ -28,3 +30,15 @@ Answer Lesson 1's first opening question in plain language. No implementation ye
 ## Retention checks
 
 None due yet. Revisit a demonstrated concept after two or three subsequent sessions.
+
+## Blocker and return point
+
+The learner identified basic TypeScript grammar and datatypes as possible missing prerequisites for unknown. The exact depth of the gap remains unassessed; do not label all foundations absent or mastered.
+
+Return point: L001's first question — what must be established before using an unknown value's a and b properties?
+
+Provisional order: P01 values/variables/type annotations -> P02 basic values/object properties -> P03 conditions/runtime checks -> L001 unknown/narrowing. Assess and skip already demonstrated prerequisites. Only P01 is active.
+
+## Continuation instructions
+
+Read AGENTS.md, learning-agreement.md, this file, and the L001 record. Preserve learner-owned implementation. Ask one question at a time. Short prerequisite evidence stays inside L001; use a separate file only if a unit grows substantially or is reused. Resume from the recorded return point after the bounded check, not from the beginning of the program.

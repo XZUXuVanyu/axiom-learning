@@ -1,6 +1,6 @@
 # Axiom learning agreement and progress record
 
-Version: 1.0 — 2026-09-05
+Version: 1.1 — 2026-09-06
 Owner: xzu. Scope: the Axiom learning and development program, including scheduled lessons.
 
 ## Standing rules
@@ -70,15 +70,28 @@ Retained additionally requires a later successful revisit. A demonstrated topic 
 
 The learner writes predictions, attempts, and explanations. The assistant records review findings and evidence-based status. The learner may challenge a finding; resolve disagreements through the requirement, a derivation, documentation, or a reproducible experiment. Do not overwrite failed attempts with the final result.
 
+## Prerequisite workflow
+
+When a lesson exceeds current knowledge:
+
+1. Pause it and record the exact question, blocker, and return point.
+2. Identify the smallest prerequisite needed now; defer merely interesting related topics.
+3. Set one short objective and a bounded understanding check before teaching.
+4. Explain the missing concept and let the learner attempt the check. Do not repeatedly demand guesses when prerequisites are absent.
+5. Record the answer, hints, evidence, remaining gap, and return destination.
+6. Return to the paused question once the check succeeds. Unblocking a lesson does not automatically establish retained mastery.
+
+Keep one active unit. Allow at most two nested prerequisite levels as an organizational default, not a pedagogical law; flatten deeper dependencies into a short foundations sequence. Adjust this limit deliberately if needed. Maintain a later list rather than following every tangent.
+
+Use progress.md for the active unit, parent lesson, blocker, return point, and next action. Keep short prerequisite records inside the parent lesson. Create a separate file only when a unit becomes a substantial session or is reused across lessons; link it rather than duplicating records.
+
+Prerequisite record fields: ID; why needed; objective; bounded check; learner answer/attempt; review/evidence; hints; remaining gap; status; return point. Track execution state (active, paused, blocked) separately from mastery state (not attempted, attempted, revision needed, demonstrated, retained).
+
 ## Current checkpoint
 
-No implementation mastery has been assessed in this course. Prior programming experience is context, not a completed assessment.
+The authoritative live checkpoint is progress.md and the active lesson record, rather than a duplicated snapshot in this agreement.
 
-L01: TypeScript runtime validation of tool arguments.
-Status: not attempted; no code or execution evidence submitted.
-Target: distinguish static type assertions from runtime checking and safely narrow unknown input.
-Existing exercise: accept an object with exactly a and b as finite numbers; reject null, arrays, missing fields, extra fields, strings in numeric fields, and non-finite numbers. Do not use any or assert the result as AddArguments.
-Next action: before implementation, explain in plain language what must be established about an unknown value before reading its a and b properties. If unknown or narrowing is unfamiliar, teach that prerequisite with an unrelated example first.
+As of this revision, L001 remains the main exercise and is paused for a foundations assessment beginning with P01 (values, variables, and type annotations). No implementation mastery has been established. Preserve existing environment evidence; do not infer that missing language prerequisites erase earlier setup work.
 
 ## Continuity and revision
 
@@ -89,3 +102,5 @@ Changes to exercises, pace, explanations, and assessment criteria may be propose
 ## Change log
 
 - 2026-09-05, v1.0: Recorded the learner's no-crucial-code and evidence-based-progress rules; superseded earlier full-solution and crucial-code delivery exceptions; established the review loop and initial unassessed checkpoint.
+
+- 2026-09-06, v1.1: Added bounded prerequisite units, one active unit, explicit return points, and a revisable two-level nesting limit. L001 pauses for P01 foundations assessment. Standing no-solution and evidence rules remain in force.
