@@ -1,7 +1,7 @@
 # L001 — Runtime validation of tool arguments
 
 Mastery status: implementation not attempted
-Execution state: paused for prerequisite assessment; P02 active
+Execution state: paused for prerequisite assessment; P03 active
 Normal budget: 45–60 minutes; first checkpoint: 10–15 minutes.
 
 ## Purpose
@@ -86,8 +86,8 @@ The learner raised a prerequisite problem: understanding unknown may require bas
 | Unit | Why needed | Bounded check | State |
 |---|---|---|---|
 | P01: values, variables, type annotations | Separate actual data from static declarations | Explain value versus annotation on a small unrelated example | Bounded check met; narrow prerequisite evidence |
-| P02: basic values and object properties | Recognize the kinds of input being discussed | Distinguish numbers, strings, objects, null, and undefined, and describe a property | Active; unassessed |
-| P03: conditions and runtime checks | Understand evidence used for narrowing | Explain what a simple condition establishes and what it does not | Pending assessment |
+| P02: basic values and object properties | Recognize the kinds of input being discussed | Distinguish numbers, strings, objects, null, and undefined, and describe a property | Bounded check met; narrow prerequisite evidence |
+| P03: conditions and runtime checks | Understand evidence used for narrowing | Implement and explain a small runtime-value classifier using `unknown`; submit output | Active; unassessed |
 
 This sequence is provisional. Skip supported prerequisites based on learner evidence. Do not teach all TypeScript datatypes merely to complete a checklist.
 
@@ -99,11 +99,33 @@ This sequence is provisional. Skip supported prerequisites based on learner evid
 - Learner answer/attempt: predicted that changing an annotation does not change the runtime value; compared the annotation to a tag and related it cautiously to a C++ declaration.
 - Review/evidence: learner-reported explanation in the lesson conversation. Core distinction between static annotation and runtime value is correct. The C++ analogy needs a boundary: TypeScript annotations are erased before JavaScript runs.
 - Hints: explanation of value, variable, and annotation; no validator implementation.
-- Remaining gap: P02 and P03 remain unassessed.
+- Remaining gap: P02 bounded check is met. P03 remains active; the parent validator remains unattempted.
 - Mastery status: bounded check met; this is prerequisite evidence, not implementation mastery.
 - Return point: L001 opening question 1; assess P02/P03 if still needed.
-- Next action: begin P02 with basic runtime values and object properties; ask one classification question. No validator implementation.
+- Next action: complete the P03 runtime-value classifier quest below. No parent-validator implementation yet.
+
+### P02 short record
+
+- Why needed: the parent contract refers to runtime numbers, strings, null, ordinary objects, property keys, and property values.
+- Objective: distinguish relevant runtime values and describe object properties accurately.
+- Bounded check evidence: learner classified `20` as a number, `"20"` as a string, `null` as neither, and `{ a: 20 }` as an object. Learner identified the key `"a"` and value `20`, and explained that `{ a: "20", b: 3 }` fails a numeric-`a`/numeric-`b` contract.
+- Review: correct. The learner also derived the required validation order: outer ordinary-object check, required-property existence, then property-value type checks.
+- Hints received: runtime/static distinction; why `null` must be excluded; the difference between `any` and `unknown`; no validator implementation.
+- Mastery status: bounded check met; this is prerequisite evidence, not implementation mastery.
+- Return point: P03 conditions/runtime checks.
+- Next action: complete the P03 quest below.
+
+### P03 real code quest — runtime-value classifier
+
+- Objective: write and explain a small program whose control flow safely distinguishes runtime categories received as `unknown`.
+- Crucial implementation: learner-owned. The learner writes the classifier and the test calls. The assistant may review an attempt but will not provide its implementation, patch, or solution-equivalent pseudocode.
+- Function contract: implement `classifyRuntimeValue(value: unknown)`. It must return exactly one of the labels `"undefined"`, `"null"`, `"number"`, `"string"`, `"boolean"`, `"array"`, `"object"`, or `"other"`.
+- Scope: ordinary JavaScript runtime values only. Use `unknown`; do not use `any`, type assertions to bypass checks, or external libraries. `null` must be distinguished from ordinary objects, and arrays must be distinguished from ordinary objects.
+- Required observations: demonstrate the function on `undefined`, `null`, `-3`, `"20"`, `false`, an array, an ordinary object, and one value that should produce `"other"` (for example, a function).
+- Acceptance criteria: every required input produces its specified category; code compiles/runs; the learner supplies the actual command and output; the learner explains why the `null`/array cases need special treatment; and the learner predicts one new test before running it.
+- Relation to the parent lesson: this quest deliberately does not inspect `a` or `b`, enforce exact object keys, test finite numbers, or return parsed arguments. It prepares only the runtime-check/narrowing prerequisite.
+- Current status: not attempted. No code or output has been submitted.
 
 ### Later questions
 
-None recorded. Add optional topics here instead of starting another active unit.
+- 2026-09-06 auxiliary explanation: `any`, `unknown`, `undefined`, `never`, `null`, and `void`. This is conceptual context only; it does not add a separate active unit or demonstrate P03.
