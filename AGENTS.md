@@ -22,3 +22,9 @@ Draft an evidence-based update to the current lesson and progress.md. Leave the 
 ## Missing prerequisites
 
 When a question exceeds the learner's knowledge, pause the main exercise and record the exact blocker and return point. Teach the smallest needed prerequisite rather than repeatedly asking the learner to guess. Keep one active unit; put optional topics in a later list. Use at most two nested prerequisite levels as a revisable organizational default. If a third level is needed, flatten the work into a short foundations sequence. Define a bounded understanding check before teaching, then return to the parent exercise. Follow the prerequisite workflow in learning-agreement.md and recover the active unit from progress.md. A blocked flag is separate from mastery status.
+
+## Current direction — 2026-09-06
+
+C++ is the primary implementation and learning language. TypeScript is deferred, with existing evidence and gaps preserved. Read program-context.md as well as the live checkpoint. Focus lessons on useful Axiom behavior, contracts, invariants, failure cases, and component responsibilities; teach language features only when the active feature needs them. Ask one focused question at a time. Do not substitute broad syntax quizzes or a complete architecture for the learner's design work.
+
+Start the new conversation with lessons/C001-tool-contract.md. The initial target is a small standalone C++ capability, followed by a C++ MCP server for local Codex. JSON configuration and Markdown instructions are allowed; no TypeScript bridge is required by this plan. Verify platform interfaces before integration work. A native IDE extension is a separate later decision.

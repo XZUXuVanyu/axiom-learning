@@ -1,46 +1,47 @@
 # Current progress
 
 Updated: 2026-09-06
-Main lesson: L001 — Runtime validation
-Active unit: P03 — Conditions and runtime checks
-Record: lessons/L001-runtime-validation.md
-Mastery status: not attempted (implementation)
-Execution state: L001 paused; prerequisite assessment active
+Main lesson: C001 — A C++ tool's behavior and contract
+Active unit: C001 opening feature-contract discussion
+Record: lessons/C001-tool-contract.md
+Mastery status: not attempted
+Execution state: active; awaiting learner design
 
-## Verified course evidence
+## Current decision
 
-No learner implementation, compiler output, or mastery assessment has been submitted. Starter documentation has been prepared. Assistant-run environment inspection on 2026-09-06 found Node.js v24.19.0 and npm v11.17.0. No project package metadata or `tsc` executable was found. PowerShell blocked the script shims, while `npm.cmd` worked; an `npx.cmd` probe failed with `EPERM` during registry/cache access and installed nothing. TypeScript is not currently available through the inspected project or command path.
-
-| Skill | Status | Evidence |
-|---|---|---|
-| Static types versus runtime values | P01 bounded check met | Learner explanation: annotation does not change the runtime value; TypeScript annotations are erased before JavaScript runs. |
-| Basic values and object properties | P02 bounded check met | Learner correctly classified numbers, strings, null, and ordinary objects; identified property key `"a"` and value `20`; explained why object shape/property types matter. |
-| Conditions and runtime checks | P03 revision needed | Learner classifier handles the displayed required inputs plus function and symbol, but the untested `bigint` category would currently escape as raw `"bigint"` rather than contract label `"other"`. |
-| TypeScript unknown and narrowing | Blocked on P03 revision | Parent validator remains unattempted. |
-| Runtime request validation | Not attempted | No learner implementation or execution evidence. |
+C++ is primary; TypeScript is deferred. Focus on Axiom's features, logic, contracts, and failure behavior. Teach language details when needed. The learner implements crucial code; documented evidence and bounded prerequisites remain required.
 
 ## Next action
 
-Revise P03 so every runtime category outside the named labels reaches `"other"`; add and run a bigint transfer case, then report the actual command/output and explanation. Do not begin the parent `parseAddArguments` validator until that revision is reviewed.
+In the new conversation, read the agreement and C001. Ask its opening question about successful versus failed tool calls. Review the learner's answer before selecting the smallest coding step. Do not start with a broad C++ syntax test or supply the implementation.
+
+## Preserved TypeScript evidence
+
+L001 is deferred, not completed. Its full chronological record remains in lessons/L001-runtime-validation.md.
+
+| Skill | Recorded evidence/status |
+|---|---|
+| Static types versus runtime values | P01 bounded check met; learner explanation recorded in L001. |
+| Basic values and object properties | P02 bounded check met; classifications and property reasoning recorded. |
+| Conditions and runtime checks | P03 revision needed at the latest repository checkpoint: bigint transfer case. |
+| Parent runtime validator | Implementation not attempted. |
+| C++ feature implementation | Not attempted in this course; toolchain unverified. |
+
+P03 was implemented in an external Visual Studio TypeScript project. Learner-reported execution and screenshots are recorded in L001; source is not stored here. Later conversation reports include a bigint prediction, but this update does not establish a verified final correction. If TS resumes, inspect current source and actual output before reassessment.
+
+Initial environment inspection recorded Node.js v24.19.0 and npm v11.17.0, blocked PowerShell shims, working npm.cmd, no tsc in the inspected path, and an npx.cmd EPERM failure that installed nothing. These are historical observations; later L001 screenshots reported TypeScript execution elsewhere. No environment commands were rerun for this update.
+
+## Deferred return point
+
+If TypeScript is resumed: reconcile P03's bigint case with the latest learner code/output, then return to L001 question 1. This is not a blocker for C001. Preserve prior failures and evidence.
 
 ## Pending decisions
 
-- Exact harness integration.
-- Exact IDE extension target.
-- How TypeScript will be made available and how to run the first exercise. Node.js v24.19.0 and npm v11.17.0 are installed; no installation or upgrade has been performed.
-
-## Retention checks
-
-None due yet. Revisit a demonstrated concept after two or three subsequent sessions.
-
-## Blocker and return point
-
-The learner identified basic TypeScript grammar and datatypes as possible missing prerequisites for unknown. P01 and P02 bounded checks are met. P03 requires one revision for an untested bigint case; do not label the full validator mastered from prerequisite work.
-
-Return point: L001's first question — what must be established before using an unknown value's a and b properties?
-
-Provisional order: P01 values/variables/type annotations -> P02 basic values/object properties -> P03 conditions/runtime checks -> L001 unknown/narrowing. P01 and P02 have narrow supporting evidence; P03 needs a bigint revision. The parent L001 validator remains unattempted.
+- C++ compiler/build environment and minimum standard, chosen from the learner's actual setup.
+- Smallest result/error representation after the learner specifies behavior.
+- JSON and MCP dependencies, evaluated when needed.
+- Native IDE extension target and technology, later.
 
 ## Continuation instructions
 
-Read AGENTS.md, learning-agreement.md, this file, and the L001 record. Preserve learner-owned implementation. Ask one question at a time. Short prerequisite evidence stays inside L001; use a separate file only if a unit grows substantially or is reused. P03's implementation was learner-owned and its learner-reported output/explanation/transfer result are recorded in L001. Complete the bigint revision before returning to the parent validator.
+Read AGENTS.md, learning-agreement.md, program-context.md, this file, and C001. Ask one question at a time. Record predictions, attempts, actual results, hints, gaps, and one next action. No current prerequisite is active; create one only for a concrete blocker. Retention checks follow demonstrated work after two or three subsequent sessions.

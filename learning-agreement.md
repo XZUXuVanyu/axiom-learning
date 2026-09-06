@@ -1,6 +1,6 @@
 # Axiom learning agreement and progress record
 
-Version: 1.1 — 2026-09-06
+Version: 1.2 — 2026-09-06
 Owner: xzu. Scope: the Axiom learning and development program, including scheduled lessons.
 
 ## Standing rules
@@ -18,9 +18,9 @@ Milestones, adapted to demonstrated prerequisites:
 
 1. Specify and validate one typed tool request.
 2. Implement a small C++ executable with an explicit input/output contract.
-3. Connect a TypeScript host to that executable and explain failure behavior.
-4. Expose the capability through one selected harness integration.
-5. Add a thin IDE entry point and demonstrate an end-to-end call.
+3. Establish reliable C++ execution, explicit failures, and resource cleanup.
+4. Expose the capability through a C++ MCP server for local Codex and package configuration/instructions.
+5. Grow the Axiom testing/evidence/approval workflow; evaluate a thin IDE entry point when needed.
 
 Select the exact IDE and harness before platform-specific implementation. Visual Studio and VS Code are different extension targets. Do not assume TypeScript is the native implementation language of every IDE extension.
 
@@ -91,7 +91,7 @@ Prerequisite record fields: ID; why needed; objective; bounded check; learner an
 
 The authoritative live checkpoint is progress.md and the active lesson record, rather than a duplicated snapshot in this agreement.
 
-As of this revision, L001 remains the main exercise and is paused for a foundations assessment beginning with P01 (values, variables, and type annotations). No implementation mastery has been established. Preserve existing environment evidence; do not infer that missing language prerequisites erase earlier setup work.
+As of this revision, C001 is the active lesson and has not been attempted. TypeScript L001 and its P03 revision are deferred, with previous evidence preserved. See progress.md for the exact next action. C++ setup and implementation have not been verified.
 
 ## Continuity and revision
 
@@ -104,3 +104,9 @@ Changes to exercises, pace, explanations, and assessment criteria may be propose
 - 2026-09-05, v1.0: Recorded the learner's no-crucial-code and evidence-based-progress rules; superseded earlier full-solution and crucial-code delivery exceptions; established the review loop and initial unassessed checkpoint.
 
 - 2026-09-06, v1.1: Added bounded prerequisite units, one active unit, explicit return points, and a revisable two-level nesting limit. L001 pauses for P01 foundations assessment. Standing no-solution and evidence rules remain in force.
+
+- 2026-09-06, v1.2: User selected C++ as the primary path and requested more focus on logic and features. TypeScript is deferred, not erased or marked mastered. Begin C001 with behavior/contracts and a small learner-owned implementation; defer MCP and IDE details until the capability works. Both standing rules and the prerequisite workflow remain unchanged.
+
+## Feature-centered teaching
+
+Each lesson starts with an observable Axiom feature, its purpose, input/output contract, and relevant failure cases. The learner proposes behavior and design before implementation. Teach C++ syntax, ownership, or library concepts just in time; avoid a broad language syllabus as an entry gate. A design discussion alone does not establish implementation mastery. Prefer a small working capability before general frameworks or a production rewrite.

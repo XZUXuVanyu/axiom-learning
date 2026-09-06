@@ -3,11 +3,17 @@
 Date:
 Status: not attempted / attempted / revision needed / demonstrated / retained
 
+## Feature and observable behavior
+
+What useful Axiom behavior does this enable? What is a success or failure from the caller's perspective?
+
 ## Objective and prerequisites
 
 ## Crucial implementation owned by learner
 
 ## Requirements and acceptance cases
+
+Include input/output contract, invariants, relevant failure cases, and explicit scope limits. Teach language mechanisms only as needed.
 
 ## Learner prediction/design
 

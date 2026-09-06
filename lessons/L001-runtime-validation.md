@@ -1,7 +1,9 @@
 # L001 — Runtime validation of tool arguments
 
 Mastery status: implementation not attempted
-Execution state: paused for one P03 revision; parent L001 remains unattempted
+Execution state: deferred by the 2026-09-06 C++ direction decision; parent L001 remains unattempted
+
+Current track: lessons/C001-tool-contract.md. The records below are historical checkpoints, not instructions to resume TypeScript now. P03's recorded bigint gap is preserved pending future review.
 Normal budget: 45–60 minutes; first checkpoint: 10–15 minutes.
 
 ## Purpose
