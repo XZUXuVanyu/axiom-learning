@@ -2,7 +2,7 @@
 
 Updated: 2026-09-06
 Main lesson: L001 — Runtime validation
-Active unit: P01 — Values, variables, and type annotations
+Active unit: P02 — Basic values and object properties
 Record: lessons/L001-runtime-validation.md
 Mastery status: not attempted (implementation)
 Execution state: L001 paused; prerequisite assessment active
@@ -19,7 +19,7 @@ No learner implementation, compiler output, or mastery assessment has been submi
 
 ## Next action
 
-Begin P01 in lessons/L001-runtime-validation.md. Explain values, variables, and type annotations briefly, then ask one small prediction question and wait. Do not restart the full validator question before its prerequisites are established.
+Begin P02 in lessons/L001-runtime-validation.md. Explain basic runtime values and object properties briefly, then ask one small classification question and wait. Do not restart the full validator question before its prerequisites are established.
 
 ## Pending decisions
 
@@ -33,11 +33,11 @@ None due yet. Revisit a demonstrated concept after two or three subsequent sessi
 
 ## Blocker and return point
 
-The learner identified basic TypeScript grammar and datatypes as possible missing prerequisites for unknown. The exact depth of the gap remains unassessed; do not label all foundations absent or mastered.
+The learner identified basic TypeScript grammar and datatypes as possible missing prerequisites for unknown. P01's bounded check is met; assess the remaining foundations individually rather than label all foundations absent or mastered.
 
 Return point: L001's first question — what must be established before using an unknown value's a and b properties?
 
-Provisional order: P01 values/variables/type annotations -> P02 basic values/object properties -> P03 conditions/runtime checks -> L001 unknown/narrowing. Assess and skip already demonstrated prerequisites. Only P01 is active.
+Provisional order: P01 values/variables/type annotations -> P02 basic values/object properties -> P03 conditions/runtime checks -> L001 unknown/narrowing. Assess and skip already demonstrated prerequisites. P02 is active.
 
 ## Continuation instructions
 
