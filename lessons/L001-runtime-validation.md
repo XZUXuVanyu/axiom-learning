@@ -1,7 +1,7 @@
 # L001 — Runtime validation of tool arguments
 
 Mastery status: implementation not attempted
-Execution state: prerequisites assessed; resume L001 from its opening return point
+Execution state: paused for one P03 revision; parent L001 remains unattempted
 Normal budget: 45–60 minutes; first checkpoint: 10–15 minutes.
 
 ## Purpose
@@ -87,7 +87,7 @@ The learner raised a prerequisite problem: understanding unknown may require bas
 |---|---|---|---|
 | P01: values, variables, type annotations | Separate actual data from static declarations | Explain value versus annotation on a small unrelated example | Bounded check met; narrow prerequisite evidence |
 | P02: basic values and object properties | Recognize the kinds of input being discussed | Distinguish numbers, strings, objects, null, and undefined, and describe a property | Bounded check met; narrow prerequisite evidence |
-| P03: conditions and runtime checks | Understand evidence used for narrowing | Implement and explain a small runtime-value classifier using `unknown`; submit output | Demonstrated as a bounded prerequisite |
+| P03: conditions and runtime checks | Understand evidence used for narrowing | Implement and explain a small runtime-value classifier using `unknown`; submit output | Revision needed: bigint transfer case |
 
 This sequence is provisional. Skip supported prerequisites based on learner evidence. Do not teach all TypeScript datatypes merely to complete a checklist.
 
@@ -99,10 +99,10 @@ This sequence is provisional. Skip supported prerequisites based on learner evid
 - Learner answer/attempt: predicted that changing an annotation does not change the runtime value; compared the annotation to a tag and related it cautiously to a C++ declaration.
 - Review/evidence: learner-reported explanation in the lesson conversation. Core distinction between static annotation and runtime value is correct. The C++ analogy needs a boundary: TypeScript annotations are erased before JavaScript runs.
 - Hints: explanation of value, variable, and annotation; no validator implementation.
-- Remaining gap: P02 bounded check is met. P03 is demonstrated as a bounded prerequisite; the parent validator remains unattempted.
+- Remaining gap: P02 bounded check is met. P03 requires a bigint transfer revision; the parent validator remains unattempted.
 - Mastery status: bounded check met; this is prerequisite evidence, not implementation mastery.
 - Return point: L001 opening question 1; assess P02/P03 if still needed.
-- Next action: return to the parent exercise. First restate the runtime evidence required before reading `a` and `b` from `unknown`; then plan the learner-owned validator attempt.
+- Next action: revise P03 for the bigint transfer case, then return to the parent exercise. No parent-validator implementation yet.
 
 ### P02 short record
 
@@ -136,8 +136,9 @@ This sequence is provisional. Skip supported prerequisites based on learner evid
 - Learner explanation: `null` and arrays require special handling because raw `typeof` gives both the result `"object"`, despite their different runtime meanings.
 - Transfer check: predicted `Symbol("id")` should map to `"other"`; final output matched.
 - Hints received: explanation of `typeof`, strict versus loose equality, `Array.isArray`, and the distinction between logical and bitwise operators. No classifier implementation was supplied.
-- Status: demonstrated as a bounded prerequisite. This does not demonstrate the parent validator.
-- Return point: parent exercise question 1 — establish what must be true about `unknown` before reading `a` and `b`.
+- Review correction after the displayed transfer result: JavaScript also has the runtime category `bigint`. The classifier's raw fallback would return `"bigint"`, outside the function contract's allowed labels. This case was not tested, so the earlier demonstrated status was premature.
+- Status: revision needed. Add a bigint test, revise so it maps to `"other"`, and provide actual output plus an explanation.
+- Return point after revision: parent exercise question 1 — establish what must be true about `unknown` before reading `a` and `b`.
 - Retention: revisit this classifier logic after two or three later sessions.
 
 ### Later questions
