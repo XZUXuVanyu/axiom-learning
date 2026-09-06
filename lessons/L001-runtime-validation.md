@@ -1,7 +1,7 @@
 # L001 — Runtime validation of tool arguments
 
 Mastery status: implementation not attempted
-Execution state: paused for prerequisite assessment; P01 active
+Execution state: paused for prerequisite assessment; P02 active
 Normal budget: 45–60 minutes; first checkpoint: 10–15 minutes.
 
 ## Purpose
@@ -85,8 +85,8 @@ The learner raised a prerequisite problem: understanding unknown may require bas
 
 | Unit | Why needed | Bounded check | State |
 |---|---|---|---|
-| P01: values, variables, type annotations | Separate actual data from static declarations | Explain value versus annotation on a small unrelated example | Active; unassessed |
-| P02: basic values and object properties | Recognize the kinds of input being discussed | Distinguish numbers, strings, objects, null, and undefined, and describe a property | Pending assessment |
+| P01: values, variables, type annotations | Separate actual data from static declarations | Explain value versus annotation on a small unrelated example | Bounded check met; narrow prerequisite evidence |
+| P02: basic values and object properties | Recognize the kinds of input being discussed | Distinguish numbers, strings, objects, null, and undefined, and describe a property | Active; unassessed |
 | P03: conditions and runtime checks | Understand evidence used for narrowing | Explain what a simple condition establishes and what it does not | Pending assessment |
 
 This sequence is provisional. Skip supported prerequisites based on learner evidence. Do not teach all TypeScript datatypes merely to complete a checklist.
@@ -96,13 +96,13 @@ This sequence is provisional. Skip supported prerequisites based on learner evid
 - Why needed: the meaning of unknown depends on distinguishing runtime values from type information.
 - Objective: understand values, variables, and basic type-annotation syntax.
 - Check: after a brief explanation, predict whether changing an annotation changes the actual value in an unrelated example, and explain why.
-- Learner answer/attempt: pending.
-- Review/evidence: no P01 assessment performed yet.
-- Hints: no P01 instructional hint recorded; only the learning sequence has been discussed.
-- Remaining gap: exact prerequisite knowledge is unassessed.
-- Mastery status: not attempted.
+- Learner answer/attempt: predicted that changing an annotation does not change the runtime value; compared the annotation to a tag and related it cautiously to a C++ declaration.
+- Review/evidence: learner-reported explanation in the lesson conversation. Core distinction between static annotation and runtime value is correct. The C++ analogy needs a boundary: TypeScript annotations are erased before JavaScript runs.
+- Hints: explanation of value, variable, and annotation; no validator implementation.
+- Remaining gap: P02 and P03 remain unassessed.
+- Mastery status: bounded check met; this is prerequisite evidence, not implementation mastery.
 - Return point: L001 opening question 1; assess P02/P03 if still needed.
-- Next action: tutor gives a brief explanation of values/variables/type annotations and asks one small prediction question. No validator implementation.
+- Next action: begin P02 with basic runtime values and object properties; ask one classification question. No validator implementation.
 
 ### Later questions
 
