@@ -1,8 +1,8 @@
 # C001 — A C++ tool's behavior and contract
 
 Date: 2026-09-06
-Mastery status: not attempted
-Execution state: active
+Mastery status: attempted; revision needed
+Execution state: paused for P-CXX-001 — Inheritance and polymorphism foundations
 Normal budget: 45–60 minutes; first checkpoint: 10–15 minutes.
 
 ## Feature and purpose
@@ -15,28 +15,13 @@ C++ is the implementation language. We focus first on behavior and logic. MCP, p
 
 The learner specifies the behavior, proposes component responsibilities, implements validation/result logic, and writes relevant checks. The assistant explains concepts, reviews attempts, and gives bounded hints. It must not supply crucial implementation, a finished architecture, or solution-equivalent pseudocode.
 
-## Opening checkpoint — ask only this first
+## Resolved contract decisions
 
-A caller asks your tool to add two numbers. What should count as a successful call, and what should the caller receive when the request cannot be accepted? Describe your intended behavior in plain language, with one success example and one failure example.
-
-Review that answer before discussing representation or coding. Do not require unfamiliar C++ syntax to answer.
-
-## Contract questions to resolve together
-
-These are a discussion backlog, not simultaneous homework:
-- Which numeric values does this first version support?
-- What does a result mean, and how is failure distinguishable from a valid zero?
-- What should happen if valid operands produce an unrepresentable result?
-- Which component interprets incoming data, and which performs the operation?
-- What should the tool leave unchanged when it rejects a request?
-
-Keep the learner's decisions and reasons below. Do not pre-fill the final design.
-
-## First implementation scope
-
-After reviewing the contract, agree on one small standalone C++ implementation and observable checks. Begin with direct local calls; add structured external input as a later bounded step. Do not implement JSON parsing, MCP lifecycle, or an IDE extension in the first attempt. Choose build commands from the actual local environment. No C++ compiler has been verified in this course update.
-
-External data will still require runtime validation even though C++ is statically typed. When external input is introduced, distinguish malformed input, invalid tool arguments, and execution failure according to the agreed contract.
+- Inputs: exactly two `int32_t` operands for the first version.
+- Success: their mathematical sum is representable as `int32_t`; zero is an ordinary valid result.
+- Failure: a mathematical sum outside `[-2^{31}, 2^{31}-1]` is rejected through an exception path.
+- Intended diagnostic boundary: a reusable `Axiom::Exception` base with a range-specific derived error carrying stable operation identity, operands, and source-location context.
+- Source-location semantics: the desired location is the tool call site, not a refactor-sensitive helper location.
 
 ## Acceptance and evidence
 
@@ -46,26 +31,47 @@ To mark demonstrated: actual behavior meets the agreed cases; the learner suppli
 
 ## Learner prediction and design
 
-Pending learner response.
+- Successful inputs were defined as acceptable numeric values whose sum stays in range.
+- The learner chose `int32_t` to give a fixed, explicit numeric range.
+- The learner chose exceptions rather than explicit result values, because a valid result can be zero and failures should propagate to a boundary catch.
+- A reusable range error should retain inputs and be usable by later numeric tools.
+- The learner identified that a stable operation identity cannot be inferred solely from `std::source_location`, because helpers and refactors change locations.
+- The learner proposed `Axiom::Exception` as a base with derived exceptions, then reported insufficient confidence in inheritance/polymorphism design.
 
 ## Attempts and execution evidence
 
-None. No source, command, or output submitted for C001.
+Environment: Visual Studio/MSVC; C++20 selected by the learner.
+
+Learner-submitted source and screenshot evidence showed:
+
+- `add(13, 36)` produced `49`.
+- `add(-13, 13)` produced `0`.
+- `add(2147483647, -12341)` produced `2147471306`.
+- `add(2147483647, 234)` entered the exception path.
+- The catch printed `int __cdecl main(void)`, confirming that the current implementation stored only `location.function_name()` in `std::overflow_error::what()`.
+
+Evidence source: learner-reported source and screenshot; not assistant-run on the learner's Windows environment.
 
 ## Tutor review
 
-2026-09-06: documented the user-authorized C++ direction and feature-centered lesson. This is preparation only, not skill evidence. TypeScript history remains in L001.
+- Initial attempted check evaluated `a + b` before detecting overflow; that could cause signed-overflow undefined behavior.
+- Revision formed the candidate result in `int64_t` first, then compared it with `int32_t` limits. This resolves that specific overflow-detection defect.
+- The current standard `std::overflow_error` experiment does not retain a full `std::source_location`, operation identifier, or operands.
+- `numeric_tool.cpp` must directly include `<limits>` if it uses `std::numeric_limits`.
+- The draft `Axiom::Exception` hierarchy needs a clear base contract, virtual dispatch, ownership/lifetime understanding, and correct initialization of derived fields. This is the active concrete blocker.
+
+## Prerequisite and return point
+
+P-CXX-001 is active. It is deliberately unrelated to the C001 exception implementation where possible, so its exercise does not become a copied solution.
+
+Return only after the prerequisite's bounded evidence is met. Then resume at: design the `Axiom::Exception` base contract and a `RangeException` constructor chain; implement and rerun C001's boundary tests.
 
 ## Revision, explanation, and transfer
 
-Pending. Select the transfer task after the original attempt is understood.
-
-## Prerequisites and return point
-
-No active prerequisite. If blocked, record the exact issue, teach one smallest prerequisite, define its bounded check, and return to the paused contract/implementation question. Use at most two nested levels by default.
+Pending after prerequisite completion.
 
 ## Checkpoint
 
-Next action: learner answers the opening success/failure question.
-Remaining gaps: contract, C++ environment, implementation, and behavior evidence unassessed.
+Next action: P-CXX-001 Unit 1 opening question.
+Remaining gaps: reusable exception hierarchy, complete diagnostic accessors, actual C001 source committed to the learning repository, explanation, and transfer behavior.
 Retention: revisit after demonstrated work and two or three subsequent sessions.
