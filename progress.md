@@ -1,11 +1,11 @@
 # Current progress
 
-Updated: 2026-09-06
+Updated: 2026-09-07
 Main lesson: C001 — A C++ tool's behavior and contract
-Active unit: P-CXX-001 / U4 — Error-family design transfer
+Active unit: C001 — A C++ tool's behavior and contract
 Record: lessons/P-CXX-001-inheritance-polymorphism.md
 C001 mastery status: attempted; revision needed
-Execution state: C001 paused for a learner-requested prerequisite; P-CXX-001 active
+Execution state: prerequisite complete; C001 resumed at exception-family header design
 
 ## Current decision
 
@@ -28,17 +28,18 @@ The implementation was revised to form the candidate sum in `int64_t` before che
 
 The current experimental code throws `std::overflow_error(location.function_name())`. It proves propagation and default-argument call-site capture, but it does not retain a full `std::source_location`, an operation identifier, or operands. The learner began designing `Axiom::Exception` and `RangeException`, then identified inheritance/polymorphism design as a concrete blocker.
 
-## Active prerequisite
+## Completed prerequisite
 
 - ID: P-CXX-001 — Inheritance and polymorphism foundations.
 - Why needed: C001 requires a base exception contract, derived range-specific context, safe virtual behavior through a base reference, and correct base/member construction order.
 - Objective: design and implement small unrelated polymorphic types before resuming the Axiom exception hierarchy.
+- Status: U1–U4 demonstrated. U4 established a common importer-error context (path, message, log timestamp) and a system-only lower-layer error code boundary.
 - Return point: C001's `Axiom::Exception` / `RangeException` header and implementation.
 - Bounded completion evidence: demonstrated behavior through a base reference, correct constructor/destructor-order explanation, and one small transfer design. This prerequisite does not itself establish C001.
 
 ## Next action
 
-Start P-CXX-001, Unit 4: transfer demonstrated inheritance, construction, and ownership reasoning into an unrelated error-family design. Ask one focused question at a time. Do not supply C001's implementation.
+Resume C001 at `Axiom::Exception` / `RangeException` header design. Ask one focused design question at a time; the learner owns the implementation.
 
 ## Preserved TypeScript evidence
 
@@ -60,7 +61,7 @@ If TypeScript is resumed: reconcile P03's bigint case with the latest learner co
 
 ## Pending decisions
 
-- Exact `Axiom::Exception` base interface and ownership semantics after P-CXX-001.
+- Exact `Axiom::Exception` base interface and ownership semantics.
 - C++ error representation beyond the C001 range case.
 - JSON and MCP dependencies, evaluated when needed.
 - Native IDE extension target and technology, later.
