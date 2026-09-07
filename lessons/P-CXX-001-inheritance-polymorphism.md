@@ -2,8 +2,8 @@
 
 Date: 2026-09-06
 Parent lesson: C001 — A C++ tool's behavior and contract
-Mastery status: U1–U2 demonstrated; U3 not attempted
-Execution state: active; U3 is the current unit
+Mastery status: U1–U3 demonstrated; U4 not attempted
+Execution state: active; U4 is the current unit
 Normal budget: four focused sessions of 45–60 minutes; no automatic advancement.
 
 ## Why this exists
@@ -121,9 +121,17 @@ Suppose a concrete `MemoryOut` object is copied into a variable whose declared t
 
 Stop after the prediction; review it before any implementation.
 
-## U4 — deferred transfer
+## U4 — active: error-family design transfer
 
-Begin only after U3 is demonstrated. Its purpose is to map demonstrated principles back to error-family design without supplying C001 implementation.
+### Feature
+
+Before returning to C001, design an unrelated validation-error family that shares message and source context while one subtype adds its own domain data. This tests field placement and substitutability without implementing the Axiom exception hierarchy.
+
+### Opening question — ask only this first
+
+Imagine a document-importer with several failures. Propose one base error contract that every importer error needs, and one specific derived error whose extra data cannot sensibly live in every base error. Name the extra data and explain why it belongs only in that subtype.
+
+Do not use `Axiom::Exception`, numeric overflow, or C001 class names. Stop after the design answer; review it before code.
 
 ## Return to C001
 
@@ -141,14 +149,14 @@ U1 learner-reported/screenshot evidence: Visual Studio/MSVC Debug x64 build succ
 
 ### Tutor review
 
-2026-09-06: U1 demonstrated dynamic dispatch through a base reference, correct static-versus-dynamic type explanation, and a third `MemoryOut` transfer variant. Review findings: `MemoryOut::read` initially fell off a non-void function on invalid input; learner revised its contract to `std::optional<std::string>`. The test now distinguishes no result from an existing empty string. Direct includes for `<vector>` and `<cstdint>` remain an engineering cleanup item unless already added locally. The label `Null Str` refers to an empty string, not a null string/pointer. U2 demonstrated. Learner-built trace evidence: base member (UID 0) constructed before the base constructor body; derived members constructed in declaration order (UIDs 1 then 2) despite the opposite initializer-list text; destruction occurred as derived body, derived members in reverse declaration order, base body, then base member. U3 is now active.
+2026-09-06: U1 demonstrated dynamic dispatch through a base reference, correct static-versus-dynamic type explanation, and a third `MemoryOut` transfer variant. Review findings: `MemoryOut::read` initially fell off a non-void function on invalid input; learner revised its contract to `std::optional<std::string>`. The test now distinguishes no result from an existing empty string. Direct includes for `<vector>` and `<cstdint>` remain an engineering cleanup item unless already added locally. The label `Null Str` refers to an empty string, not a null string/pointer. U2 demonstrated. Learner-built trace evidence: base member (UID 0) constructed before the base constructor body; derived members constructed in declaration order (UIDs 1 then 2) despite the opposite initializer-list text; destruction occurred as derived body, derived members in reverse declaration order, base body, then base member. U3 demonstrated. Learner-reported/screenshot-visible evidence: a `vector<unique_ptr<OutSink>>` owned MemoryOut, FileOut, and ConsoleOut; calls were made through base pointers without casts or manual delete. Ownership transfer moved the ConsoleOut owner out of the vector; the original slot was checked as null and the program exited normally. Destruction logs showed the moved ConsoleOut once, then the remaining vector-owned derived/base pairs. This was an MSVC observation; no vector element-destruction order was assumed. U4 is now active.
 
 ### Revision and transfer
 
-U1 transfer demonstrated: `MemoryOut` added without changing the caller function. U2 transfer demonstrated: a second derived member was declared in the opposite order from the initializer-list text. The learner predicted and observed declaration-order construction and reverse-order destruction. U3 transfer pending.
+U1 transfer demonstrated: `MemoryOut` added without changing the caller function. U2 transfer demonstrated: a second derived member was declared in the opposite order from the initializer-list text. The learner predicted and observed declaration-order construction and reverse-order destruction. U3 transfer demonstrated: the learner stored heterogeneous sinks as `std::unique_ptr<OutSink>` in one vector, transferred one owner with move semantics, observed the source slot become null, avoided dereference, and observed normal derived-then-base destruction. U4 transfer pending.
 
 ### Outcome
 
-Status: U1–U2 demonstrated; U3 not attempted.
-Next action: answer the U3 object-slicing prediction question.
+Status: U1–U3 demonstrated; U4 not attempted.
+Next action: answer the U4 error-family field-placement design question.
 Retention: revisit polymorphic dispatch two or three sessions after demonstrated work.
