@@ -2,7 +2,7 @@
 
 Date: 2026-09-06
 Parent lesson: C001 — A C++ tool's behavior and contract
-Mastery status: U1–U3 demonstrated; U4 not attempted
+Mastery status: U1–U3 demonstrated; U4 attempted (design revision pending)
 Execution state: active; U4 is the current unit
 Normal budget: four focused sessions of 45–60 minutes; no automatic advancement.
 
@@ -149,14 +149,18 @@ U1 learner-reported/screenshot evidence: Visual Studio/MSVC Debug x64 build succ
 
 ### Tutor review
 
-2026-09-06: U1 demonstrated dynamic dispatch through a base reference, correct static-versus-dynamic type explanation, and a third `MemoryOut` transfer variant. Review findings: `MemoryOut::read` initially fell off a non-void function on invalid input; learner revised its contract to `std::optional<std::string>`. The test now distinguishes no result from an existing empty string. Direct includes for `<vector>` and `<cstdint>` remain an engineering cleanup item unless already added locally. The label `Null Str` refers to an empty string, not a null string/pointer. U2 demonstrated. Learner-built trace evidence: base member (UID 0) constructed before the base constructor body; derived members constructed in declaration order (UIDs 1 then 2) despite the opposite initializer-list text; destruction occurred as derived body, derived members in reverse declaration order, base body, then base member. U3 demonstrated. Learner-reported/screenshot-visible evidence: a `vector<unique_ptr<OutSink>>` owned MemoryOut, FileOut, and ConsoleOut; calls were made through base pointers without casts or manual delete. Ownership transfer moved the ConsoleOut owner out of the vector; the original slot was checked as null and the program exited normally. Destruction logs showed the moved ConsoleOut once, then the remaining vector-owned derived/base pairs. This was an MSVC observation; no vector element-destruction order was assumed. U4 is now active.
+2026-09-06: U1 demonstrated dynamic dispatch through a base reference, correct static-versus-dynamic type explanation, and a third `MemoryOut` transfer variant. Review findings: `MemoryOut::read` initially fell off a non-void function on invalid input; learner revised its contract to `std::optional<std::string>`. The test now distinguishes no result from an existing empty string. Direct includes for `<vector>` and `<cstdint>` remain an engineering cleanup item unless already added locally. The label `Null Str` refers to an empty string, not a null string/pointer. U2 demonstrated. Learner-built trace evidence: base member (UID 0) constructed before the base constructor body; derived members constructed in declaration order (UIDs 1 then 2) despite the opposite initializer-list text; destruction occurred as derived body, derived members in reverse declaration order, base body, then base member. U3 demonstrated. Learner-reported/screenshot-visible evidence: a `vector<unique_ptr<OutSink>>` owned MemoryOut, FileOut, and ConsoleOut; calls were made through base pointers without casts or manual delete. Ownership transfer moved the ConsoleOut owner out of the vector; the original slot was checked as null and the program exited normally. Destruction logs showed the moved ConsoleOut once, then the remaining vector-owned derived/base pairs. This was an MSVC observation; no vector element-destruction order was assumed. U4 has a first design attempt under review.
+
+### U4 first design attempt and review
+
+2026-09-07: The learner identified occurrence time and error category as possible base-wide information, proposed a `SystemError` subtype with a system error code, and noted that document-specific errors should not be conflated with underlying system failures. The learner then proposed that every error class inherit `std::exception`, override `what()`, and carry `error_info`; the source of `system_error_code` was not yet identified. Review: only the family base needs to directly inherit `std::exception` and implement the common `what()` behavior; derived classes inherit that implementation. `error_info` must be decomposed into specific information with a stated consumer. A meaningful `SystemError` must represent an expected, recoverable lower-layer failure (for example, an operating-system/filesystem or decoder-library reported error), not a memory access violation or generic process crash. The next design step is to name one concrete source and decide which precise base fields are necessary for all importer failures.
 
 ### Revision and transfer
 
-U1 transfer demonstrated: `MemoryOut` added without changing the caller function. U2 transfer demonstrated: a second derived member was declared in the opposite order from the initializer-list text. The learner predicted and observed declaration-order construction and reverse-order destruction. U3 transfer demonstrated: the learner stored heterogeneous sinks as `std::unique_ptr<OutSink>` in one vector, transferred one owner with move semantics, observed the source slot become null, avoided dereference, and observed normal derived-then-base destruction. U4 transfer pending.
+U1 transfer demonstrated: `MemoryOut` added without changing the caller function. U2 transfer demonstrated: a second derived member was declared in the opposite order from the initializer-list text. The learner predicted and observed declaration-order construction and reverse-order destruction. U3 transfer demonstrated: the learner stored heterogeneous sinks as `std::unique_ptr<OutSink>` in one vector, transferred one owner with move semantics, observed the source slot become null, avoided dereference, and observed normal derived-then-base destruction. U4 first design attempt recorded; revision pending.
 
 ### Outcome
 
-Status: U1–U3 demonstrated; U4 not attempted.
-Next action: answer the U4 error-family field-placement design question.
+Status: U1–U3 demonstrated; U4 attempted (design revision pending).
+Next action: refine the U4 base contract and choose a concrete, recoverable source for subtype-specific system error information.
 Retention: revisit polymorphic dispatch two or three sessions after demonstrated work.
