@@ -2,8 +2,8 @@
 
 Date: 2026-09-06
 Parent lesson: C001 — A C++ tool's behavior and contract
-Mastery status: U1 demonstrated; U2 not attempted
-Execution state: active; U2 is the current unit
+Mastery status: U1–U2 demonstrated; U3 not attempted
+Execution state: active; U3 is the current unit
 Normal budget: four focused sessions of 45–60 minutes; no automatic advancement.
 
 ## Why this exists
@@ -102,9 +102,24 @@ Consider a derived object whose base class owns one member and whose derived cla
 
 Stop after the prediction; review it before implementation.
 
-## U3 — deferred
+## U3 — active: ownership and substitutability
 
-Begin only after U2 is demonstrated. Keep resource ownership examples small and use standard RAII types; no raw ownership exercise is required unless a concrete gap appears.
+### Feature
+
+A caller wants to retain several different output sinks through a common base interface without leaking objects, losing derived behavior, or deleting them incorrectly.
+
+### Conceptual target
+
+- A base object stored **by value** cannot retain a derived-only portion; this is object slicing.
+- Polymorphic objects should normally be manipulated through references/pointers to the base contract.
+- Ownership must be explicit. Standard RAII owners should release resources automatically.
+- A publicly deletable polymorphic base requires a public virtual destructor; a protected destructor deliberately prevents deletion through the base interface.
+
+### Opening question — ask only this first
+
+Suppose a concrete `MemoryOut` object is copied into a variable whose declared type is `OutSink` (not a reference or pointer). What information/behavior do you predict is lost, and why might the code be rejected before runtime in the current design?
+
+Stop after the prediction; review it before any implementation.
 
 ## U4 — deferred transfer
 
@@ -126,14 +141,14 @@ U1 learner-reported/screenshot evidence: Visual Studio/MSVC Debug x64 build succ
 
 ### Tutor review
 
-2026-09-06: U1 demonstrated dynamic dispatch through a base reference, correct static-versus-dynamic type explanation, and a third `MemoryOut` transfer variant. Review findings: `MemoryOut::read` initially fell off a non-void function on invalid input; learner revised its contract to `std::optional<std::string>`. The test now distinguishes no result from an existing empty string. Direct includes for `<vector>` and `<cstdint>` remain an engineering cleanup item unless already added locally. The label `Null Str` refers to an empty string, not a null string/pointer. U2 is now active.
+2026-09-06: U1 demonstrated dynamic dispatch through a base reference, correct static-versus-dynamic type explanation, and a third `MemoryOut` transfer variant. Review findings: `MemoryOut::read` initially fell off a non-void function on invalid input; learner revised its contract to `std::optional<std::string>`. The test now distinguishes no result from an existing empty string. Direct includes for `<vector>` and `<cstdint>` remain an engineering cleanup item unless already added locally. The label `Null Str` refers to an empty string, not a null string/pointer. U2 demonstrated. Learner-built trace evidence: base member (UID 0) constructed before the base constructor body; derived members constructed in declaration order (UIDs 1 then 2) despite the opposite initializer-list text; destruction occurred as derived body, derived members in reverse declaration order, base body, then base member. U3 is now active.
 
 ### Revision and transfer
 
-U1 transfer demonstrated: `MemoryOut` added without changing the caller function. U2 transfer pending.
+U1 transfer demonstrated: `MemoryOut` added without changing the caller function. U2 transfer demonstrated: a second derived member was declared in the opposite order from the initializer-list text. The learner predicted and observed declaration-order construction and reverse-order destruction. U3 transfer pending.
 
 ### Outcome
 
-Status: U1 demonstrated; U2 not attempted.
-Next action: answer the U2 construction-order prediction question.
+Status: U1–U2 demonstrated; U3 not attempted.
+Next action: answer the U3 object-slicing prediction question.
 Retention: revisit polymorphic dispatch two or three sessions after demonstrated work.
