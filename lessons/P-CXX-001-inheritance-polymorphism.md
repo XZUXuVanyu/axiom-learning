@@ -2,8 +2,8 @@
 
 Date: 2026-09-06
 Parent lesson: C001 — A C++ tool's behavior and contract
-Mastery status: U1–U3 demonstrated; U4 attempted (design revision pending)
-Execution state: active; U4 is the current unit
+Mastery status: U1–U4 demonstrated
+Execution state: completed; return to C001
 Normal budget: four focused sessions of 45–60 minutes; no automatic advancement.
 
 ## Why this exists
@@ -161,7 +161,7 @@ U1 learner-reported/screenshot evidence: Visual Studio/MSVC Debug x64 build succ
 
 ### U4 compact revised design
 
-2026-09-07: The learner proposed common fields `std::filesystem::path path`, `std::string message`, and `std::steady_clock::time_point time`, with an error code reserved for `SystemError`. The placement is largely correct under the exercise's path-identified importer assumption: document identity and human-readable reporting are common, whereas a lower-layer error code is not meaningful for a content-format failure. Remaining review point: `steady_clock` is monotonic and is suitable for measuring elapsed time in one process, but it has no portable wall-clock meaning for logs. The learner must choose whether the requirement is elapsed-time measurement (keep `steady_clock`) or a human-readable event timestamp (use a wall clock), or omit time from the first version if neither has a consumer.
+2026-09-07: The learner proposed common fields `std::filesystem::path path`, `std::string message`, and `std::steady_clock::time_point time`, with an error code reserved for `SystemError`. The placement is largely correct under the exercise's path-identified importer assumption: document identity and human-readable reporting are common, whereas a lower-layer error code is not meaningful for a content-format failure. Remaining review point: `steady_clock` is monotonic and is suitable for measuring elapsed time in one process, but it has no portable wall-clock meaning for logs. The learner chose a human-readable error-generation timestamp for logs; the field therefore has wall-clock semantics and is represented by `std::system_clock::time_point` in the design.
 
 ### Revision and transfer
 
@@ -169,6 +169,6 @@ U1 transfer demonstrated: `MemoryOut` added without changing the caller function
 
 ### Outcome
 
-Status: U1–U3 demonstrated; U4 attempted (design revision pending).
-Next action: refine the U4 base contract and choose a concrete, recoverable source for subtype-specific system error information.
+Status: U1–U4 demonstrated.
+Next action: return to C001's `Axiom::Exception` / `RangeException` header design.
 Retention: revisit polymorphic dispatch two or three sessions after demonstrated work.
