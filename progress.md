@@ -2,7 +2,7 @@
 
 Updated: 2026-09-06
 Main lesson: C001 — A C++ tool's behavior and contract
-Active unit: P-CXX-001 / U2 — Construction, destruction, and invariants
+Active unit: P-CXX-001 / U3 — Ownership and substitutability
 Record: lessons/P-CXX-001-inheritance-polymorphism.md
 C001 mastery status: attempted; revision needed
 Execution state: C001 paused for a learner-requested prerequisite; P-CXX-001 active
@@ -38,7 +38,7 @@ The current experimental code throws `std::overflow_error(location.function_name
 
 ## Next action
 
-Start P-CXX-001, Unit 2: predict and then demonstrate base/member/derived construction and reverse destruction order using a small unrelated traceable hierarchy. Ask one focused question at a time. Do not supply the exercise implementation.
+Start P-CXX-001, Unit 3: reason about polymorphic ownership, object slicing, and safe destruction through a base interface. Ask one focused question at a time. Do not supply the exercise implementation.
 
 ## Preserved TypeScript evidence
 
