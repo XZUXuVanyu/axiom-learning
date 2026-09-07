@@ -2,7 +2,7 @@
 
 Scope: this entire repository and all Axiom learning/development tasks.
 
-Before teaching or reviewing, read learning-agreement.md, progress.md, and the active lesson. Inspect the learner's actual code before making claims about it. Do not infer completion from elapsed time, an existing implementation, or previous assistant assertions.
+Before teaching or reviewing, read long-term/README.md, long-term/learning-rules.md, long-term/resume.md, progress.md, and the active lesson. Inspect the learner's actual code before making claims about it. Do not infer completion from elapsed time, an existing implementation, or previous assistant assertions.
 
 ## Required behavior
 
@@ -27,8 +27,12 @@ When a question exceeds the learner's knowledge, pause the main exercise and rec
 
 C++ is the primary implementation and learning language. TypeScript is deferred, with existing evidence and gaps preserved. Read program-context.md as well as the live checkpoint. Focus lessons on useful Axiom behavior, contracts, invariants, failure cases, and component responsibilities; teach language features only when the active feature needs them. Ask one focused question at a time. Do not substitute broad syntax quizzes or a complete architecture for the learner's design work.
 
-Start the new conversation with lessons/C001-tool-contract.md. The initial target is a small standalone C++ capability, followed by a C++ MCP server for local Codex. JSON configuration and Markdown instructions are allowed; no TypeScript bridge is required by this plan. Verify platform interfaces before integration work. A native IDE extension is a separate later decision.
+Start each new conversation from progress.md and its linked active lesson; do not restart C001 or any other lesson automatically. The initial target is a small standalone C++ capability, followed by a C++ MCP server for local Codex. JSON configuration and Markdown instructions are allowed; no TypeScript bridge is required by this plan. Verify platform interfaces before integration work. A native IDE extension is a separate later decision.
 
 ## Alternating weeks — 2026-09-07
 
 Read weekly-plan.md when planning or resuming work. Alternate structure with physics/math-to-code work on the same evolving project for a four-week trial. Recover the active task from progress.md; week boundaries never imply mastery. Keep structure tied to the next experiment, preserve unfinished return points, and retain both standing rules.
+
+## Durable context and conditional review — 2026-09-07
+
+Long-term policy and direction are canonical under long-term/. Follow long-term/resume.md for every fresh conversation and long-term/commit-review.md for scheduled checks. No new learner commit means no notification or repository write. Checker documentation must never trigger another lesson. A commit triggers assessment, not automatic advancement. Preserve current checkpoint and learner ownership. Routine review may update review records, lesson preparation, progress, and the review baseline, but not implementation code or standing policy.

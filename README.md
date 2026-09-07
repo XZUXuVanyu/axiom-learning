@@ -1,33 +1,30 @@
 # Axiom learning repository
 
-This is xzu's learning project, separate from production Axiom CoLab.
+xzu's C++ learning project, separate from production Axiom CoLab. Build useful features and translate physics/math into tested code. TypeScript evidence remains preserved and deferred.
 
 ## Start or resume
 
-1. Read AGENTS.md, learning-agreement.md, program-context.md, and progress.md.
-2. Begin lessons/C001-tool-contract.md: C++ tool behavior and contracts.
-3. Use one conversation per lesson and continue it for revisions. Implement locally in practice-plugin/.
-4. Share actual code or a revision plus commands/output for review. Remote updates are not automatically read.
+Read [AGENTS.md](AGENTS.md), [long-term/README.md](long-term/README.md), and [long-term/resume.md](long-term/resume.md), then [progress.md](progress.md) and its linked active lesson. Resume that checkpoint; do not restart the first lesson.
 
-C++ is now the primary path. We focus on Axiom's logic and features, learning language details as they become necessary. TypeScript L001 is deferred; its attempts and unresolved checks remain recorded.
+The learner owns crucial implementation. The assistant explains, hints, reviews, and maintains factual documentation. Progress requires actual evidence, the learner's explanation, and a transfer check.
 
-## Daily workflow
+## Commit-driven preparation
 
-Predict or design -> learner implementation -> observed results -> review -> revision -> explanation and transfer -> checkpoint. Keep one active unit and bounded prerequisites. A reminder resumes the checkpoint without creating a backlog.
+A daily check inspects new commits on main. New work triggers review and preparation of one appropriate next step. No new work means no reminder or lesson. A commit does not automatically demonstrate mastery. Only pushed work is visible.
 
-The learner owns crucial implementation. The assistant provides teaching, hints, reviews, and administrative documentation. Record evidence sources and unresolved gaps; never infer mastery from one passing example. Codex CLI is optional and must obey AGENTS.md.
+See [review protocol](long-term/commit-review.md). The structure/physics alternating-week trial continues as an emphasis plan.
 
-## New conversation entry
+## Repository map
 
-Read this repository's AGENTS.md, learning-agreement.md, program-context.md, progress.md, and lessons/C001-tool-contract.md. Start C001 from its first checkpoint. Focus on feature behavior, logic, contracts, and failure cases using C++. Ask one question at a time. Do not provide crucial implementation or a complete solution.
+| Path | Purpose |
+|---|---|
+| AGENTS.md | Mandatory assistant instructions |
+| long-term/ | Canonical learning rules, global design, goals, cadence, and resume instructions |
+| progress.md | Current active unit, evidence status, blocker, and next action |
+| lessons/ | Attempts, prerequisites, reviews, lesson templates |
+| reviews/ | Commit-review records and last successfully reviewed source SHA |
+| practice-plugin/ | Learner implementation workspace |
 
-## Files
+Root learning-agreement.md, program-context.md, and weekly-plan.md are compatibility pointers. Source and execution evidence must be committed or supplied for review; do not infer implementation from documentation.
 
-- AGENTS.md: assistant instructions.
-- learning-agreement.md: standing rules and review process.
-- program-context.md: direction and architecture boundaries.
-- progress.md: authoritative live checkpoint.
-- lessons/: current C++ lesson, deferred TypeScript record, reusable template.
-- practice-plugin/: learner implementation workspace.
-
-No C++ implementation or toolchain has been added by this direction update.
+Pull remote documentation with `git pull --ff-only` before continuing locally, preserving uncommitted work.

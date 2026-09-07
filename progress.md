@@ -59,7 +59,7 @@ L001 is deferred, not completed. Its full chronological record remains in lesson
 | Basic values and object properties | P02 bounded check met; classifications and property reasoning recorded. |
 | Conditions and runtime checks | P03 revision needed at the latest repository checkpoint: bigint transfer case. |
 | Parent runtime validator | Implementation not attempted. |
-| C++ feature implementation | C001 attempted; prerequisite active before completion. |
+| C++ feature implementation | C001 attempted; prerequisite complete and C001 resumed; revision pending. |
 
 P03 was implemented in an external Visual Studio TypeScript project. Learner-reported execution and screenshots are recorded in L001; source is not stored here. Later conversation reports include a bigint prediction, but this update does not establish a verified final correction. If TS resumes, inspect current source and actual output before reassessment.
 
@@ -77,3 +77,7 @@ If TypeScript is resumed: reconcile P03's bigint case with the latest learner co
 ## Continuation instructions
 
 Read AGENTS.md, learning-agreement.md, program-context.md, this file, the active prerequisite record, and C001. Ask one question at a time. Record predictions, attempts, actual results, hints, gaps, and one next action. Retention checks follow demonstrated work after two or three subsequent sessions.
+
+## Repository continuity and conditional review — 2026-09-07
+
+Durable program documents now live in long-term/; follow long-term/resume.md in a fresh conversation. Daily checks follow long-term/commit-review.md and reviews/commit-check-state.json. No new learner commit means no action. A new commit triggers review and one appropriate next step, not automatic advancement. This administrative update preserves C001's active checkpoint and establishes no new mastery.
