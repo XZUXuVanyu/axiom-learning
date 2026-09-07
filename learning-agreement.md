@@ -1,6 +1,6 @@
 # Axiom learning agreement and progress record
 
-Version: 1.2 — 2026-09-06
+Version: 1.3 — 2026-09-07
 Owner: xzu. Scope: the Axiom learning and development program, including scheduled lessons.
 
 ## Standing rules
@@ -91,7 +91,7 @@ Prerequisite record fields: ID; why needed; objective; bounded check; learner an
 
 The authoritative live checkpoint is progress.md and the active lesson record, rather than a duplicated snapshot in this agreement.
 
-As of this revision, C001 is the active lesson and has not been attempted. TypeScript L001 and its P03 revision are deferred, with previous evidence preserved. See progress.md for the exact next action. C++ setup and implementation have not been verified.
+As of this revision, C001 is attempted and needs revision; the inheritance/polymorphism prerequisite is recorded as demonstrated and C001 has resumed. TypeScript L001 and its P03 revision remain deferred. See progress.md for current evidence and the exact next action; this scheduling update establishes no new mastery.
 
 ## Continuity and revision
 
@@ -107,6 +107,12 @@ Changes to exercises, pace, explanations, and assessment criteria may be propose
 
 - 2026-09-06, v1.2: User selected C++ as the primary path and requested more focus on logic and features. TypeScript is deferred, not erased or marked mastered. Begin C001 with behavior/contracts and a small learner-owned implementation; defer MCP and IDE details until the capability works. Both standing rules and the prerequisite workflow remain unchanged.
 
+- 2026-09-07, v1.3: Adopted the four-week alternating structure/physics-to-code trial in weekly-plan.md. Preserve one evolving project, weekly return points, and evidence-based advancement. Both standing rules remain unchanged; broader agent implementation is not authorized.
+
 ## Feature-centered teaching
 
 Each lesson starts with an observable Axiom feature, its purpose, input/output contract, and relevant failure cases. The learner proposes behavior and design before implementation. Teach C++ syntax, ownership, or library concepts just in time; avoid a broad language syllabus as an entry gate. A design discussion alone does not establish implementation mastery. Prefer a small working capability before general frameworks or a production rewrite.
+
+## Alternating-week cadence
+
+Follow weekly-plan.md for the four-week trial. Alternate emphasis on the same small project, record unfinished work explicitly, and review usefulness, understanding, and reuse after four study weeks. Scheduling does not override prerequisite or mastery requirements.

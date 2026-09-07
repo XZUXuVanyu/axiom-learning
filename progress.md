@@ -3,7 +3,8 @@
 Updated: 2026-09-07
 Main lesson: C001 — A C++ tool's behavior and contract
 Active unit: C001 — A C++ tool's behavior and contract
-Record: lessons/P-CXX-001-inheritance-polymorphism.md
+Record: lessons/C001-tool-contract.md
+Completed prerequisite record: lessons/P-CXX-001-inheritance-polymorphism.md
 C001 mastery status: attempted; revision needed
 Execution state: prerequisite complete; C001 resumed at exception-family header design
 
@@ -36,6 +37,13 @@ The current experimental code throws `std::overflow_error(location.function_name
 - Status: U1–U4 demonstrated. U4 established a common importer-error context (path, message, log timestamp) and a system-only lower-layer error code boundary.
 - Return point: C001's `Axiom::Exception` / `RangeException` header and implementation.
 - Bounded completion evidence: demonstrated behavior through a base reference, correct constructor/destructor-order explanation, and one small transfer design. This prerequisite does not itself establish C001.
+
+## Alternating-week trial — 2026-09-07
+
+Plan: weekly-plan.md. Adopted four study weeks alternating structure, physics/math-to-code, integration, and physics/validation on one evolving project.
+Current emphasis: Week 1 — structure; continue C001. Exact study dates/hours are not yet recorded.
+Next physics focus: proposed damped-oscillator prototype with analytical reference checks; not attempted or assessed.
+Preserve unfinished return points at week boundaries; review the cadence after four study weeks. Both learning rules remain unchanged.
 
 ## Next action
 

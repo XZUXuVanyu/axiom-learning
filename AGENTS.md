@@ -28,3 +28,7 @@ When a question exceeds the learner's knowledge, pause the main exercise and rec
 C++ is the primary implementation and learning language. TypeScript is deferred, with existing evidence and gaps preserved. Read program-context.md as well as the live checkpoint. Focus lessons on useful Axiom behavior, contracts, invariants, failure cases, and component responsibilities; teach language features only when the active feature needs them. Ask one focused question at a time. Do not substitute broad syntax quizzes or a complete architecture for the learner's design work.
 
 Start the new conversation with lessons/C001-tool-contract.md. The initial target is a small standalone C++ capability, followed by a C++ MCP server for local Codex. JSON configuration and Markdown instructions are allowed; no TypeScript bridge is required by this plan. Verify platform interfaces before integration work. A native IDE extension is a separate later decision.
+
+## Alternating weeks — 2026-09-07
+
+Read weekly-plan.md when planning or resuming work. Alternate structure with physics/math-to-code work on the same evolving project for a four-week trial. Recover the active task from progress.md; week boundaries never imply mastery. Keep structure tied to the next experiment, preserve unfinished return points, and retain both standing rules.

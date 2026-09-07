@@ -2,7 +2,7 @@
 
 Date: 2026-09-06
 Mastery status: attempted; revision needed
-Execution state: paused for P-CXX-001 — Inheritance and polymorphism foundations
+Execution state: prerequisite complete; resumed at exception-family header design
 Normal budget: 45–60 minutes; first checkpoint: 10–15 minutes.
 
 ## Feature and purpose
@@ -62,16 +62,16 @@ Evidence source: learner-reported source and screenshot; not assistant-run on th
 
 ## Prerequisite and return point
 
-P-CXX-001 is active. It is deliberately unrelated to the C001 exception implementation where possible, so its exercise does not become a copied solution.
+P-CXX-001 U1–U4 are recorded as demonstrated in the prerequisite record and progress.md. Its unrelated exercises preserved learner ownership of the C001 implementation.
 
-Return only after the prerequisite's bounded evidence is met. Then resume at: design the `Axiom::Exception` base contract and a `RangeException` constructor chain; implement and rerun C001's boundary tests.
+The bounded prerequisite evidence is now recorded. Resume at: design the `Axiom::Exception` base contract and a `RangeException` constructor chain; implement and rerun C001's boundary tests.
 
 ## Revision, explanation, and transfer
 
-Pending after prerequisite completion.
+C001 implementation revision, explanation, and transfer remain pending; prerequisite completion alone does not establish C001.
 
 ## Checkpoint
 
-Next action: P-CXX-001 Unit 1 opening question.
+Next action: resume the Axiom::Exception / RangeException header design, one focused question at a time, during Week 1 of weekly-plan.md.
 Remaining gaps: reusable exception hierarchy, complete diagnostic accessors, actual C001 source committed to the learning repository, explanation, and transfer behavior.
 Retention: revisit after demonstrated work and two or three subsequent sessions.

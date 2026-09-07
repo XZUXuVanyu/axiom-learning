@@ -37,3 +37,7 @@ Integration references checked in the preceding conversation:
 Recheck current interfaces when integration begins. No C++ MCP SDK has been selected or verified. A Codex plugin is not itself a native Visual Studio extension.
 
 Priorities: useful behavior, explicit contracts, testable logic, observable failures, evidence records, and human approval. Long-term pipeline: idea -> agent proposal -> candidate implementation -> human/AI-assisted build/test/debug -> approval tied to tested evidence -> toolkit registration. Build each part incrementally. Approval enforcement belongs in executable logic, not merely skill instructions. Do not claim the plugin grants unrestricted control or persistent learning automatically.
+
+## Alternating-week direction — 2026-09-07
+
+The learner adopted a four-week trial alternating software structure with physics/math-to-code work on one evolving project. See weekly-plan.md for sequence, checkpoints, and review criteria. The practical direction is a small offline physical-audio tool, potentially leading to bubble sound and a VST; a damped oscillator is the proposed first bounded physics exercise. A complete Axiom platform is not a prerequisite for investigating the model. No new implementation mastery or broader agent implementation authority is implied.
