@@ -5,8 +5,8 @@ Main lesson: C001 — A C++ tool's behavior and contract
 Active unit: C001 — A C++ tool's behavior and contract
 Record: lessons/C001-tool-contract.md
 Completed prerequisite record: lessons/P-CXX-001-inheritance-polymorphism.md
-C001 mastery status: attempted; revision needed
-Execution state: C001 implementation submitted; exception-contract cleanup pending
+C001 mastery status: demonstrated
+Execution state: C001 complete; next feature not yet selected
 
 ## Current decision
 
@@ -92,3 +92,14 @@ Static review found the exception hierarchy now preserves message text, source l
 ## Next action
 
 Resolve the `what() noexcept` declaration/definition mismatch, rebuild, and record the exact compiler result. Then explain the distinction between a base-wide `ErrorKind` and a range-specific `OperationType`.
+
+
+## 2026-09-08 C001 closure
+
+Final learner source revision: `023b38dd47aeab64cbf79ced0935f7160bc8e0fc`. The `what()` declaration and definition now consistently use `noexcept`; the learner-reported MSVC output rebuilt successfully and showed the three normal/boundary results plus the `numeric_add` range-rejection diagnostic.
+
+C001 is demonstrated: source and actual learner-reported output are recorded; the learner explained message ownership and caller-site source-location capture; and the transfer check used structured `operation_type::numeric_add` rather than parsing `what()`. This establishes the bounded C001 contract only, not complete future exception taxonomy design.
+
+## Next action
+
+Choose the next feature-centered lesson from the C++ tool path. Keep a possible base-level `ErrorKind` as a deferred design item; do not add it until a second exception family creates an actual use case.

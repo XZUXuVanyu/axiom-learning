@@ -1,8 +1,8 @@
 # C001 — A C++ tool's behavior and contract
 
 Date: 2026-09-06
-Mastery status: attempted; revision needed
-Execution state: prerequisite complete; resumed at exception-family header design
+Mastery status: demonstrated
+Execution state: completed; next feature not yet selected
 Normal budget: 45–60 minutes; first checkpoint: 10–15 minutes.
 
 ## Feature and purpose
@@ -110,3 +110,29 @@ Status: attempted; revision needed. C001 is not yet demonstrated because the `no
 Next smallest action: make the `what()` declaration and definition consistently `noexcept`, rebuild, preserve the exact output, and explain why a hypothetical base `ErrorKind` differs from `OperationType`.
 
 Retention: if C001 reaches demonstrated status, revisit polymorphic exception access after two or three later sessions.
+
+
+## 2026-09-08 — C001 closure
+
+Final source revision: `023b38dd47aeab64cbf79ced0935f7160bc8e0fc`.
+
+The learner made the `exception::what()` declaration and definition consistently `noexcept`, then rebuilt the Visual Studio/MSVC C++20 project. Learner-reported output was:
+
+```text
+4
+2147483647
+-2147483648
+numeric add failed: [axiom] error at: F:\\Project Files\\Visual Studio Projects\\Project1\\main.cpp, line: 14
+func: int __cdecl main(void)
+opt: 2147483647,1
+```
+
+The final output confirms normal values, the upper boundary, the lower boundary, and range rejection with caller-site diagnostics and typed operation-specific handling.
+
+### Demonstrated scope
+
+C001 is **demonstrated**. Evidence includes learner-owned committed source, learner-reported MSVC output, explanation of owned diagnostic text and caller-side `source_location` capture, and a transfer from string-based diagnosis to a typed `operation_type::numeric_add` check.
+
+Deferred, not a C001 gap: a base-wide `ErrorKind` for future unrelated exception families. It will be reconsidered only when a second error family supplies a concrete requirement.
+
+Retention: revisit this contract after two or three subsequent sessions.

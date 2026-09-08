@@ -2,8 +2,8 @@
   "schema_version": 1,
   "repository": "XZUXuVanyu/axiom-learning",
   "branch": "main",
-  "last_reviewed_source_sha": "08c2d5a909dd4244b9164b4fdf103ee59ab030a2",
+  "last_reviewed_source_sha": "023b38dd47aeab64cbf79ced0935f7160bc8e0fc",
   "initialized_on": "2026-09-07",
-  "status": "reviewed_with_revision_needed",
-  "note": "Reviewed C001 learner source on 2026-09-08; see reviews/2026-09-08-c001-source-08c2d5a.md. The review documentation commit is excluded by message prefix."
+  "status": "reviewed_c001_demonstrated",
+  "note": "C001 source finalized and reviewed on 2026-09-08; see reviews/2026-09-08-c001-final-023b38d.md. The review documentation commit is excluded by message prefix."
 }
