@@ -75,3 +75,38 @@ C001 implementation revision, explanation, and transfer remain pending; prerequi
 Next action: resume the Axiom::Exception / RangeException header design, one focused question at a time, during Week 1 of weekly-plan.md.
 Remaining gaps: reusable exception hierarchy, complete diagnostic accessors, actual C001 source committed to the learning repository, explanation, and transfer behavior.
 Retention: revisit after demonstrated work and two or three subsequent sessions.
+
+
+## 2026-09-08 — Exception-family implementation checkpoint
+
+### Learner-owned source
+
+Committed source attempt: `08c2d5a909dd4244b9164b4fdf103ee59ab030a2` in `practice-plugin/c001/`.
+
+The learner implemented a base `axiom::exception` that owns a diagnostic string and a `std::source_location`, plus a `range_exception` carrying two `int32_t` operands and a typed `operation_type`. The numeric `add` function accumulates in `int64_t`, checks the `int32_t` bounds, and throws `range_exception` on rejection.
+
+### Learner-reported execution evidence
+
+Visual Studio/MSVC C++20 screenshots showed normal results `4`, `INT32_MAX`, and `INT32_MIN`; positive and negative range rejection with the location pointing to the call line; explicit `std::source_location` forwarding (line 8 rather than the call on line 11); and a `range_exception::get_type()` comparison with `operation_type::numeric_add` without parsing `what()`.
+
+Evidence source: learner-reported screenshots and submitted source; not executed by the reviewer.
+
+### Learner explanation
+
+The learner explained that `m_message` exists for human-readable diagnostics and that `std::source_location::current()` belongs in `add`'s caller-visible default argument so it records each actual call site. The learner identified that an explicit `another_location` replaces the default value and is subsequently stored by value. The boundary between a base-wide error category and a range-specific operation identifier remains under revision.
+
+### Review findings
+
+Observed: message storage is no longer returned from a temporary `std::string`; base and derived catching have both been exercised; source location is carried as data rather than recreated in the exception constructor; `OperationType` is structured data; and signed range checking occurs before narrowing the `int64_t` candidate result to `int32_t`.
+
+Revision needed: `what()` must have declaration and definition with matching `noexcept` specifications. The learner reports a compiler error when adding it; the exact diagnostic and two edited signatures have not yet been preserved. The committed headers rely on transitive includes for some standard names, and `main.cpp` includes an uncommitted unused `output.h`; these are reproducibility cleanup items.
+
+`OperationType` should remain range/numeric-specific. If generic top-level dispatch is later needed, introduce a separate base-level `ErrorKind`, rather than forcing all errors into numeric operation values.
+
+### Status and next action
+
+Status: attempted; revision needed. C001 is not yet demonstrated because the `noexcept` issue is unresolved and the final design distinction remains incomplete.
+
+Next smallest action: make the `what()` declaration and definition consistently `noexcept`, rebuild, preserve the exact output, and explain why a hypothetical base `ErrorKind` differs from `OperationType`.
+
+Retention: if C001 reaches demonstrated status, revisit polymorphic exception access after two or three later sessions.

@@ -2,8 +2,8 @@
   "schema_version": 1,
   "repository": "XZUXuVanyu/axiom-learning",
   "branch": "main",
-  "last_reviewed_source_sha": "cc1a3359df34c6be9f6862b4efc93efe349f6448",
+  "last_reviewed_source_sha": "08c2d5a909dd4244b9164b4fdf103ee59ab030a2",
   "initialized_on": "2026-09-07",
-  "status": "baseline_only",
-  "note": "Existing checkpoint acknowledged during setup; no new execution or mastery assessment. Follow long-term/commit-review.md."
+  "status": "reviewed_with_revision_needed",
+  "note": "Reviewed C001 learner source on 2026-09-08; see reviews/2026-09-08-c001-source-08c2d5a.md. The review documentation commit is excluded by message prefix."
 }

@@ -1,12 +1,12 @@
 # Current progress
 
-Updated: 2026-09-07
+Updated: 2026-09-08
 Main lesson: C001 — A C++ tool's behavior and contract
 Active unit: C001 — A C++ tool's behavior and contract
 Record: lessons/C001-tool-contract.md
 Completed prerequisite record: lessons/P-CXX-001-inheritance-polymorphism.md
 C001 mastery status: attempted; revision needed
-Execution state: prerequisite complete; C001 resumed at exception-family header design
+Execution state: C001 implementation submitted; exception-contract cleanup pending
 
 ## Current decision
 
@@ -81,3 +81,14 @@ Read AGENTS.md, learning-agreement.md, program-context.md, this file, the active
 ## Repository continuity and conditional review — 2026-09-07
 
 Durable program documents now live in long-term/; follow long-term/resume.md in a fresh conversation. Daily checks follow long-term/commit-review.md and reviews/commit-check-state.json. No new learner commit means no action. A new commit triggers review and one appropriate next step, not automatic advancement. This administrative update preserves C001's active checkpoint and establishes no new mastery.
+
+
+## 2026-09-08 C001 source checkpoint
+
+Learner source was committed in `08c2d5a909dd4244b9164b4fdf103ee59ab030a2` under `practice-plugin/c001/`. The learner-reported Visual Studio/MSVC C++20 runs show normal values `4`, `INT32_MAX`, and `INT32_MIN`; range rejections for `INT32_MAX + 1` and `INT32_MIN - 1`; call-site source-location output; and a typed `operation_type::numeric_add` comparison after catching `range_exception`. This evidence is learner-reported/screenshots; it was not executed by the reviewer.
+
+Static review found the exception hierarchy now preserves message text, source location, operands, and operation identity. It still needs one focused revision: make the `what()` declaration and definition consistently `noexcept` (or record the precise compiler error if that fails). Direct header dependencies and the unused `output.h` dependency remain cleanup/reproducibility items.
+
+## Next action
+
+Resolve the `what() noexcept` declaration/definition mismatch, rebuild, and record the exact compiler result. Then explain the distinction between a base-wide `ErrorKind` and a range-specific `OperationType`.
