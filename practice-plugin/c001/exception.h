@@ -9,7 +9,7 @@ namespace axiom
 	public:
 		exception(std::string message, std::source_location location);
 		virtual ~exception() = default;
-		virtual [[nodiscard]] const char* what() const override;
+		virtual [[nodiscard]] const char* what() const noexcept override;
 
 	private:
 		const std::source_location m_location;

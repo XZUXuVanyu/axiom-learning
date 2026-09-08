@@ -8,7 +8,7 @@ axiom::exception::exception(std::string message, std::source_location location)
 	m_message = "[axiom] error at: " + file_name + ", line: " + line_name + "\n" + "func: " + func_name + "\n" + m_message;
 }
 
-const char* axiom::exception::what() const
+const char* axiom::exception::what() const noexcept
 {
 	return m_message.c_str();
 }
