@@ -2,7 +2,7 @@
 
 Date: 2026-09-06
 Mastery status: demonstrated
-Execution state: completed; next feature not yet selected
+Execution state: completed; continuation: C002 (lessons/C002-physical-state-model.md)
 Normal budget: 45–60 minutes; first checkpoint: 10–15 minutes.
 
 ## Feature and purpose
